@@ -1,47 +1,53 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useState } from 'react';
+import { Switch } from '@/components/ui/switch';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { Sun, Moon } from 'lucide-react';
 
-export default function Page() {
-  const [formData, setFormData] = useState({ name: "", email: "" });
+export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4">
-      <div className="w-full max-w-lg space-y-6">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Настройки профиля</h1>
-          <ThemeToggle />
+    <div className={cn('min-h-screen p-6', darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black')}>
+      <header className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold ">Научная электронная библиотека</h1>
+        <div className="flex items-center space-x-2">
+          <Sun className="w-5 h-5" />
+          <Switch checked={darkMode} onCheckedChange={setDarkMode} />
+          <Moon className="w-5 h-5" />
         </div>
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <div>
-              <Label htmlFor="name">Имя</Label>
-              <Input
-                id="name"
-                placeholder="Введите имя"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
-            </div>
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Введите email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-            <Button className="w-full">Сохранить</Button>
-          </CardContent>
-        </Card>
+      </header>
+
+      <div className="mb-4">
+        <Input placeholder="Поиск..." className="w-full md:w-1/2" />
+        <Button className="ml-2">Искать</Button>
       </div>
+
+      <section>
+        <h2 className="text-xl font-semibold mb-4">Популярные статьи</h2>
+        <div className="space-y-4">
+          {articles.map((article, index) => (
+            <Card key={index} className="p-4">
+              <CardContent>
+                <h3 className="text-lg font-medium">{article.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{article.views} просмотров</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
+
+const articles = [
+  { title: 'Уголовный кодекс Финляндии 1889 г. как законодательный источник', views: 16653 },
+  { title: 'Детская порнография в сети Интернет: состояние проблемы', views: 3302 },
+  { title: 'NIZOLAR VA ULARNI BOSHQARISH TARTIBI', views: 3206 },
+  { title: 'Нумизматика: история науки, современное состояние', views: 1984 },
+  { title: 'Развитие робототехники и ее будущее', views: 1846 },
+];
