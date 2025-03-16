@@ -1,10 +1,11 @@
 import React from "react";
-import Main from "@/components/Main/Main";
+import JournalMainPage from "@/components/Journal/JournalMainPage";
+
 
 const page = () => {
   return (
     <div>
-      <Main />
+      <JournalMainPage />
     </div>
   );
 };
