@@ -1,11 +1,11 @@
 "use client"; 
 
-import "./globals.css";
+import "../globals.css";
 
 
 import { ReactNode, useEffect, useState } from "react";
 import { ThemeProvider } from "next-themes";
-
+ 
 interface LayoutProps {
   children: ReactNode;
 }

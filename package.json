@@ -21,8 +21,6 @@
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf-viewer/thumbnail": "^3.12.0",
     "@react-pdf/renderer": "^4.3.0",
-    "@sanity/client": "^6.28.3",
-    "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.79.0",
     "axios": "^1.8.3",
@@ -31,6 +29,7 @@
     "depcheck": "^1.4.7",
     "global": "^4.4.0",
     "lucide-react": "^0.479.0",
+    "meilisearch": "^0.49.0",
     "next": "15.2.2",
     "next-intl": "^3.26.5",
     "next-sanity": "^9.9.4",
@@ -38,6 +37,7 @@
     "pdfjs-dist": "^3.0.279",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-is": "^19.0.0",
     "react-pdf": "^9.2.1",
     "sanity": "^3.79.0",
     "styled-components": "^6.1.15",
@@ -46,7 +46,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.0.14",
     "@types/node": "^20",
     "@types/pdfjs-dist": "^2.10.378",
     "@types/react": "^19",
